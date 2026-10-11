@@ -78,15 +78,16 @@ window.SITE_PROFILE = {
 
 - 日期统一显示为 `[MM/YYYY]`，例如 `2026-10-07` 显示为 `[10/2026]`。完整日期仍用于排序，并保留在网页的 `time` 元素中；仅填写年份时显示为 `[YYYY]`。
 - 消息按日期从新到旧自动排序。日期未知时保留 `""`，显示 `[Date to be added]`，排在有日期的消息后；不要用上传或修改网站的日期代替论文日期。
-- 当前展示六条录用动态，按日期倒序排列：npj Digital Medicine（2026-10-07）、Neurocomputing（2026-06-01）、CAP / KDD（2026-05-17）、ELinear / VTC 2025（2025-06-01）、PefNet / IJCNN 2025（2025-04-01）和 PerTime / IJCNN 2025（2025-04-01）。同日的 PefNet 和 PerTime 分为两条消息，分别使用完整标题 `PefNet: Injecting Pre-learned Channel Dependence for Time Series Forecasting with Missing Data` 和 `PerTime: A Multi-scale Periodic Mixing Model for Long-term Time Series Forecasting`；ELinear 的完整标题为 `ELinear: An Efficient Linear Architecture for Edge Intelligence Time Series Forecasting`。
-- 录用动态统一使用 `Our paper “Full title” has been accepted by Venue.`，包括 CAP 在内均写完整论文标题。会议或期刊等级在 Venue 后附注：KDD 标注 `CORE A*`，IJCNN 和 VTC 均标注 `CORE B`；Neurocomputing 和 npj Digital Medicine 仅标注 `JCR Q1`。IJCNN 和 VTC 等级依据当前 ICORE2026 官方记录，与消息的录用年份分别维护。新增历史动态仅影响 News，Selected Publications 仍保留 AnyECG-Echo 和 CAP 两篇。
+- 当前展示七条录用动态，按日期倒序排列：UniFy / Information Fusion（2026-10-11）、npj Digital Medicine（2026-10-07）、Neurocomputing（2026-06-01）、CAP / KDD（2026-05-17）、ELinear / VTC 2025（2025-06-01）、PefNet / IJCNN 2025（2025-04-01）和 PerTime / IJCNN 2025（2025-04-01）。UniFy 的完整标题为 `UniFy: A Decompose-and-Fuse Framework for Spectral Information Fusion in Time Series Forecasting`，仅添加到 News。同日的 PefNet 和 PerTime 分为两条消息，分别使用完整标题 `PefNet: Injecting Pre-learned Channel Dependence for Time Series Forecasting with Missing Data` 和 `PerTime: A Multi-scale Periodic Mixing Model for Long-term Time Series Forecasting`；ELinear 的完整标题为 `ELinear: An Efficient Linear Architecture for Edge Intelligence Time Series Forecasting`。
+- 录用动态统一使用 `Our paper “Full title” has been accepted by Venue.`，包括 CAP 在内均写完整论文标题。会议或期刊等级在 Venue 后附注：KDD 标注 `CORE A*`，IJCNN 和 VTC 均标注 `CORE B`；Information Fusion、Neurocomputing 和 npj Digital Medicine 仅标注 `JCR Q1`。IJCNN 和 VTC 等级依据当前 ICORE2026 官方记录，与消息的录用年份分别维护。新增历史动态仅影响 News，Selected Publications 仍保留 AnyECG-Echo 和 CAP 两篇。
 - 当前期刊分区依据 2025 年度 JCR：Neurocomputing 与 npj Digital Medicine 均为 Q1。分区年份不是论文录用日期，维护时需核对 JCR，不能用 CiteScore 或 SJR 分区替代。来源见下方。
 - 采用带引号的论文标题和 `accepted by` / `published in` 的标准消息格式时，论文标题会自动加粗，会议或期刊名会显示淡绿色强调；CORE/JCR 附注保持普通文字。普通动态仍按纯文本显示，无需在 `text` 里写 HTML。
 - 当前 News 仅展示日期和消息，不添加 Google Scholar 链接；`links` 保留 `[]`。如以后需要其他论文、代码或报道链接，可使用 `{ label: "Paper", url: "实际论文链接" }`。
 - 新增多条消息时，每条记录之间用英文逗号分隔。网页文案保持英文，按真实状态写接收或发表消息；News 与第一作者论文列表独立维护。
 
-指标来源（2026-10-10 核对）：
+指标来源（Information Fusion 于 2026-10-11 核对，其余于 2026-10-10 核对）：
 
+- Information Fusion：[大学图书馆保存的 Clarivate JCR 数据导出](https://kniznica.umb.sk/app/cmsSiteBoxAttachment.php?ID=6175&cmsDataID=0)，2025 年版 JCR（2024 指标年度），JIF Quartile 为 Q1。
 - Neurocomputing：[Elsevier / ScienceDirect 期刊指标](https://www.sciencedirect.com/browse/calls-for-papers?subject=computer-science)；[2025 JIF 与 JCR 分区记录](https://referencecitationanalysis.com/InCiteJournalInfo?id=17690)。
 - npj Digital Medicine：[Nature 官方指标](https://www.nature.com/npjdigitalmed/journal-impact)；[2025 JIF 与 JCR 分区记录](https://referencecitationanalysis.com/InCiteJournalInfo?id=18167)。
 - KDD：[CORE / ICORE 排名页面](https://portal.core.edu.au/conf-ranks/?by=all&page=1&sort=atitle&source=all)。

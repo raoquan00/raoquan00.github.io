@@ -19,6 +19,11 @@ window.SITE_PROFILE = {
   // date 保存完整日期用于排序；页面按 [MM/YYYY] 展示。未知保留 ""。
   news: [
     {
+      date: "2026-10-11",
+      text: "Our paper “UniFy: A Decompose-and-Fuse Framework for Spectral Information Fusion in Time Series Forecasting” has been accepted by Information Fusion (JCR Q1).",
+      links: []
+    },
+    {
       date: "2026-10-07",
       text: "Our paper “LLMs Bridge the Interpretation Gap in Home-Based AI-ECG Devices: A Real-World Study of Over 100,000 User Conversations” has been accepted by npj Digital Medicine (JCR Q1).",
       links: []
