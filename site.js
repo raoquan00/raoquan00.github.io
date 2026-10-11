@@ -66,7 +66,7 @@
     }
   }
   const name = str(p.englishName) || "Name to be added";
-  for (const id of ["header-name", "footer-name"]) text(id, name);
+  for (const id of ["about-name", "footer-name"]) text(id, name);
   document.title = `${name} · Academic Homepage`;
   document.querySelector('meta[name="description"]').content = list(p.bio).map(str).find(Boolean) || `${name}'s academic homepage. Biography, news, and publications.`;
   const heroImage = safeUrl(p.heroImage);
@@ -106,6 +106,24 @@
     if (date.getUTCFullYear() !== year || date.getUTCMonth() !== month - 1 || date.getUTCDate() !== day) return null;
     return {raw, label: parts[2] ? `${parts[2]}/${parts[1]}` : parts[1], order: date.getTime()};
   }
+  function newsMessage(value) {
+    const message = el("p", "news-text");
+    const raw = String(value);
+    const match = /^([\s\S]*?)(“([^”]+)”|"([^"]+)")(\s+(?:(?:has been|is|was) accepted by|(?:has been|is|was) published in)\s+)([^()\n]+?)(\s+\((?:CORE|JCR)\b[^)]*\))?([.!?]?)$/.exec(raw);
+    if (!match || !match[6].trim()) {
+      message.textContent = raw;
+      return message;
+    }
+    const [, prefix, quotedTitle, curlyTitle, plainTitle, announcement, venue, ranking = "", punctuation] = match;
+    message.append(
+      document.createTextNode(prefix + quotedTitle[0]),
+      el("strong", "news-paper-title", curlyTitle || plainTitle),
+      document.createTextNode(quotedTitle.slice(-1) + announcement),
+      el("strong", "news-venue", venue),
+      document.createTextNode(ranking + punctuation)
+    );
+    return message;
+  }
   const news = list(p.news).filter(item => item && str(item.text))
     .map(item => ({item, date: newsDate(item.date)}))
     .sort((a, b) => (b.date?.order ?? -Infinity) - (a.date?.order ?? -Infinity));
@@ -115,7 +133,7 @@
     const stamp = el(date ? "time" : "span", "news-date", `[${date ? date.label : "Date to be added"}]`);
     if (date) stamp.dateTime = date.raw;
     const body = el("div", "news-body");
-    const message = el("p", "news-text", item.text);
+    const message = newsMessage(item.text);
     if (str(item.status)) {
       const status = el("span", "publication-status news-status", item.status);
       if (item.status === "UR") { status.title = "Under review"; status.setAttribute("aria-label", "Under review"); }

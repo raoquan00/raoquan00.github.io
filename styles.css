@@ -23,10 +23,8 @@ p, h1, h2, h3, h4, a { overflow-wrap: anywhere; }
 .muted, .placeholder-text { color: var(--muted); }
 .skip-link { position: fixed; top: -100px; left: 20px; background: white; padding: 12px; z-index: 50; }
 .skip-link:focus { top: 8px; }
-.topbar { max-width: 1080px; margin: auto; min-height: 88px; padding: 18px 24px; display: flex; justify-content: space-between; align-items: center; gap: 24px; position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.97); border-bottom: 1px solid transparent; transition: border-color .2s ease, box-shadow .2s ease; }
+.topbar { max-width: 1080px; margin: auto; min-height: 88px; padding: 18px 24px; display: flex; justify-content: flex-end; align-items: center; gap: 24px; position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.97); border-bottom: 1px solid transparent; transition: border-color .2s ease, box-shadow .2s ease; }
 .topbar.is-scrolled { border-color: var(--line); box-shadow: 0 8px 22px -22px #26323a; }
-.wordmark { color: var(--ink); font-family: var(--serif); font-size: 21px; font-weight: 500; line-height: 1.3; }
-.wordmark a { color: inherit; }
 .topbar nav { display: flex; gap: 26px; }
 .topbar nav a { color: #56636c; font-size: 14px; min-height: 44px; display: flex; align-items: center; position: relative; }
 .topbar nav a::after { content: ''; position: absolute; left: 0; right: 0; bottom: 4px; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform .2s ease; }
@@ -64,7 +62,8 @@ html:has(dialog[open]) { overflow: hidden; }
 a:hover .external-mark { color: var(--link); transform: translate(1px, -1px); }
 .cv-link { display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; }
 h2 { font-size: 23px; font-weight: 600; line-height: 1.4; letter-spacing: -.02em; margin-bottom: 17px; }
-main section > h2, .about-copy > h2 { display: flex; align-items: center; gap: 10px; }
+main section > h2, .about-copy > h1 { display: flex; align-items: center; gap: 10px; }
+.about-copy > h1 { font-size: 30px; font-weight: 600; line-height: 1.3; letter-spacing: -.02em; margin-bottom: 17px; }
 .section-icon { display: inline-flex; justify-content: center; align-items: center; flex: 0 0 22px; width: 22px; height: 26px; color: #778879; }
 .section-icon svg { display: block; }
 h3 { font-size: 16px; font-weight: 600; line-height: 1.5; }
@@ -79,6 +78,8 @@ h3 { font-size: 16px; font-weight: 600; line-height: 1.5; }
 .news-date { font-size: 12px; color: #6f7e72; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .news-date::before { content: ''; display: inline-block; width: 4px; height: 4px; border-radius: 50%; background: #9cae9c; margin: 0 8px 2px 0; }
 .news-text { font-size: 15px; line-height: 1.8; }
+.news-paper-title { color: var(--ink); font-weight: 600; }
+.news-venue { display: inline-block; max-width: 100%; color: #44624c; background: #eef3ec; font-weight: 600; line-height: 1.5; padding: 0 4px; border-radius: 3px; }
 .news-status { display: inline-block; vertical-align: baseline; margin-left: 3px; }
 .news-links { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 3px; }
 .news-links a { display: inline-flex; align-items: center; min-height: 28px; font-size: 13px; }
@@ -126,13 +127,13 @@ footer a { color: var(--muted); display: flex; align-items: center; min-height: 
 }
 @media (max-width: 700px) {
   .topbar { min-height: 76px; gap: 16px; }
-  .wordmark { font-size: 18px; }
   .topbar nav { gap: 17px; }
   .topbar nav a { font-size: 12px; }
   .mountain-banner img { height: 190px; }
   .mountain-banner figcaption { font-size: 11px; }
   .content-layout { padding-top: 27px; }
   h2 { font-size: 22px; }
+  .about-copy > h1 { font-size: 27px; }
   .experience-entry { grid-template-columns: 56px minmax(0, 1fr); gap: 16px; }
   .experience-entry--joint { grid-template-columns: minmax(0, 1fr); }
   .experience-logo { width: 56px; height: 56px; }

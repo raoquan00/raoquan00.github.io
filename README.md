@@ -6,7 +6,7 @@
 
 页面以纯白为底，只在顶部用一条动漫日照金山横幅点缀；正文采用常规英文学术主页排版。当前横幅是生成插画，不是何晨阳拍摄的照片，也不代表真实拍摄经历。之后可以替换为自己的实拍照片，并按实际内容更新英文图片说明。
 
-顶部导航保留姓名，正文依次为 **About、News、Selected Publications、Experiences**。About 左侧展示简短英文简介，下方集中放邮箱、学术链接和可选的 CV 下载，右侧显示个人照片；手机上照片位于简介上方。任职和教育经历统一放在页面最底部的 Experiences，每条经历旁显示对应校徽。论文采用上图下文排版：两篇配图居中，预览外框统一为 760px 宽，窄屏不超过可用宽度，高度随原始比例自动调整；标题、作者和发表信息在图下方，点击配图可查看大图。
+顶部仅保留栏目导航，不重复显示姓名；简介区以 **Chenyang He** 为主标题，其后依次为 **Recent News、Selected Publications、Experiences**。简介左侧展示简短英文介绍，下方集中放邮箱、学术链接和可选的 CV 下载，右侧显示个人照片；手机上照片位于简介上方。任职和教育经历统一放在页面最底部的 Experiences，每条经历旁显示对应校徽。论文采用上图下文排版：两篇配图居中，预览外框统一为 760px 宽，窄屏不超过可用宽度，高度随原始比例自动调整；标题、作者和发表信息在图下方，点击配图可查看大图。
 
 页面包含淡金色标题点缀、随浏览位置更新的导航提示，以及图片上的 **View landscape** 按钮。点击可查看完整图片，按 Esc 或 Close 关闭。图片和说明沿用 `profile.js` 中的横幅配置；无需另维护一份。外链会提示在新标签打开。浏览器设置为减少动态效果时，页面会关闭平滑滚动和过渡效果。
 
@@ -27,7 +27,7 @@
 
 ## 维护个人内容
 
-目前已根据你提供的 CV 填入简介、经历、邮箱和 Google Scholar。简介用一段简短英文说明研究兴趣；经历按最近到最早排列为北京大学 Research Assistant、南京航空航天大学 Research Assistant、北京邮电大学硕士、北邮与 QMUL 联合培养本科。论文区统一使用 **Selected Publications** 列表，按顺序展示你指定的 2 篇第一作者工作：AnyECG-Echo、CAP。AnyECG-Echo 显示 `UR`（Under Review）；CAP 显示 `KDD 2026` 和 `Oral`，不显示投稿期刊，也不另设在审稿件分组。未提供的年份和论文链接保持为空。网页显示名使用 `englishName`（`Chenyang He`），`name` 仍可保存中文姓名。
+目前已根据你提供的 CV 填入简介、经历、邮箱和 Google Scholar。简介用一段简短英文说明研究兴趣；经历按最近到最早排列为北京大学 Research Assistant、南京航空航天大学 Research Assistant、北京邮电大学硕士、北邮与 QMUL 联合培养本科。论文区统一使用 **Selected Publications** 列表，按顺序展示你指定的 2 篇第一作者工作：AnyECG-Echo、CAP。AnyECG-Echo 显示 `UR`（Under Review）；CAP 显示 `KDD 2026` 和 `Oral`，不显示投稿期刊，也不另设在审稿件分组。未提供的年份和论文链接保持为空。简介主标题和网页显示名使用 `englishName`（`Chenyang He`），`name` 仍可保存中文姓名。
 
 网页中的简介、消息、经历、论文、链接名称和图片说明均使用英文。下面是主要数据字段的示例，用于说明填写方式；其中 `Biography to be added.` 等文字只是占位文案，不代表实际身份或经历。请以文件中的当前内容为基础修改，不要覆盖已经补充好的资料。
 
@@ -54,7 +54,7 @@ window.SITE_PROFILE = {
 };
 ```
 
-- `englishName` 是网页显示名，用于顶部导航、页面标题和页脚；`name` 可保留中文姓名。
+- `englishName` 是网页显示名，用于简介主标题、页面标题和页脚；`name` 可保留中文姓名。
 - `bio` 中每个字符串是一段英文简介，显示在 About 区域。目前保留一段简短介绍，仅说明研究兴趣；任职信息、时间和学历放在 Experiences 中维护。
 - `portrait` 填个人照片路径，当前为 `assets/portrait.jpg`；`portraitAlt` 填英文替代文字。当前照片按原始 3:4 比例完整显示，不裁切。替换照片时，可用新照片覆盖同名文件，或将新照片放入 `assets/` 并更新路径和替代文字。将 `portrait` 设为 `""` 可隐藏照片。
 - `email` 填邮箱地址；`github`、`scholar` 和 `orcid` 填对应个人页面的完整网址。未提供的值保留为 `""`。
@@ -81,6 +81,7 @@ window.SITE_PROFILE = {
 - 当前展示六条录用动态，按日期倒序排列：npj Digital Medicine（2026-10-07）、Neurocomputing（2026-06-01）、CAP / KDD（2026-05-17）、ELinear / VTC 2025（2025-06-01）、PefNet / IJCNN 2025（2025-04-01）和 PerTime / IJCNN 2025（2025-04-01）。同日的 PefNet 和 PerTime 分为两条消息，分别使用完整标题 `PefNet: Injecting Pre-learned Channel Dependence for Time Series Forecasting with Missing Data` 和 `PerTime: A Multi-scale Periodic Mixing Model for Long-term Time Series Forecasting`；ELinear 的完整标题为 `ELinear: An Efficient Linear Architecture for Edge Intelligence Time Series Forecasting`。
 - 录用动态统一使用 `Our paper “Full title” has been accepted by Venue.`，包括 CAP 在内均写完整论文标题。会议或期刊等级在 Venue 后附注：KDD 标注 `CORE A*`，IJCNN 和 VTC 均标注 `CORE B`；Neurocomputing 和 npj Digital Medicine 仅标注 `JCR Q1`。IJCNN 和 VTC 等级依据当前 ICORE2026 官方记录，与消息的录用年份分别维护。新增历史动态仅影响 News，Selected Publications 仍保留 AnyECG-Echo 和 CAP 两篇。
 - 当前期刊分区依据 2025 年度 JCR：Neurocomputing 与 npj Digital Medicine 均为 Q1。分区年份不是论文录用日期，维护时需核对 JCR，不能用 CiteScore 或 SJR 分区替代。来源见下方。
+- 采用带引号的论文标题和 `accepted by` / `published in` 的标准消息格式时，论文标题会自动加粗，会议或期刊名会显示淡绿色强调；CORE/JCR 附注保持普通文字。普通动态仍按纯文本显示，无需在 `text` 里写 HTML。
 - 当前 News 仅展示日期和消息，不添加 Google Scholar 链接；`links` 保留 `[]`。如以后需要其他论文、代码或报道链接，可使用 `{ label: "Paper", url: "实际论文链接" }`。
 - 新增多条消息时，每条记录之间用英文逗号分隔。网页文案保持英文，按真实状态写接收或发表消息；News 与第一作者论文列表独立维护。
 
