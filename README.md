@@ -8,7 +8,7 @@
 
 顶部仅保留栏目导航，不重复显示姓名；简介区以 **Chenyang He** 为主标题，其后依次为 **Recent News、Selected Publications、Experiences**。简介左侧展示简短英文介绍，下方集中放邮箱、学术链接和可选的 CV 下载，右侧显示个人照片；手机上照片位于简介上方。任职和教育经历统一放在页面最底部的 Experiences，每条经历旁显示对应校徽。论文采用上图下文排版：两篇配图居中，预览外框统一为 760px 宽，窄屏不超过可用宽度，高度随原始比例自动调整；标题、作者和发表信息在图下方，点击配图可查看大图。
 
-页面包含淡金色标题点缀、随浏览位置更新的导航提示，以及图片上的 **View landscape** 按钮。点击可查看完整图片，按 Esc 或 Close 关闭。图片和说明沿用 `profile.js` 中的横幅配置；无需另维护一份。外链会提示在新标签打开。浏览器设置为减少动态效果时，页面会关闭平滑滚动和过渡效果。
+页面包含淡金色标题点缀、随浏览位置更新的导航提示，以及图片上的 **View landscape** 按钮。点击可查看完整图片，按 Esc 或 Close 关闭。图片和可选说明沿用 `profile.js` 中的横幅配置；当前说明留空，横幅和大图窗口均隐藏说明行，包括图标和间距，图片仍保留无障碍替代文字。外链会提示在新标签打开。浏览器设置为减少动态效果时，页面会关闭平滑滚动和过渡效果。
 
 各栏目配有叶片、羽毛、山峰、微风等简约自然线稿，统一为低饱和灰绿色，没有彩色底框；GitHub 链接使用单色 GitHub 标志。添加学术链接、邮箱或 PDF 后，对应图标会自动出现。图标集中存放在 `assets/icons.svg`，许可信息见 `assets/ICON-LICENSES.txt`，发布时请一起保留。
 
@@ -47,7 +47,7 @@ window.SITE_PROFILE = {
   cv: "",
   heroImage: "assets/alpenglow-anime.png",
   heroAlt: "Anime-inspired mountain landscape in warm sunrise light.",
-  heroCaption: "AI-generated illustration inspired by alpenglow.",
+  heroCaption: "",
   news: [],
   publications: [],
   experiences: []
@@ -59,7 +59,7 @@ window.SITE_PROFILE = {
 - `portrait` 填个人照片路径，当前为 `assets/portrait.jpg`；`portraitAlt` 填英文替代文字。当前照片按原始 3:4 比例完整显示，不裁切。替换照片时，可用新照片覆盖同名文件，或将新照片放入 `assets/` 并更新路径和替代文字。将 `portrait` 设为 `""` 可隐藏照片。
 - `email` 填邮箱地址；`github`、`scholar` 和 `orcid` 填对应个人页面的完整网址。未提供的值保留为 `""`。
 - `cv` 填简历路径，例如 `assets/cv.pdf`，填写后显示在 About 简介下方的联系方式行。该路径只是示例，对应文件需要自行添加；尚未公开简历时保留 `""`。
-- `heroImage` 填首页横幅路径；`heroAlt` 填简短、准确的英文替代文字；`heroCaption` 填英文图片说明。横幅文件的扩展名以 `assets/` 中实际文件为准，路径必须保持一致。
+- `heroImage` 填首页横幅路径；`heroAlt` 填简短、准确的英文替代文字，为无障碍访问保留；`heroCaption` 为可选英文图片说明，当前设为 `""`，隐藏横幅和大图窗口中的整行说明（含图标和间距）。横幅文件的扩展名以 `assets/` 中实际文件为准，路径必须保持一致。
 - `publications` 是第一作者论文列表，包含选定的已发表成果和在审稿件；每条记录通过 `venue`、`year` 和 `status` 表示当前状态。合作论文动态放在 `news` 中。没有内容时保留 `[]`。论文作者列表中的 `englishName` 会自动加粗。
 - `experiences` 统一维护任职与教育经历，显示在页面最底部。每条记录包含 `institution`、`role`、`period`、`details`、`logo`、`logoAlt` 和 `url`，并支持可选的 `advisor`、`partnerInstitution` 及多校徽 `logos` 字段，填写方法见下方。
 - 修改时保留英文引号、逗号和括号。若一段文字需要包含英文双引号，应写成 `\"`；中文引号 `“”` 可以直接写在字符串内。
@@ -172,7 +172,7 @@ window.SITE_PROFILE = {
 1. 准备一张自己希望展示的横向高分辨率图片，例如自己的风光照片。手机和电脑上的横幅裁切范围可能不同，尽量让主要景物靠近画面中部。
 2. 将图片放入 `assets/`，例如 `assets/mountain-photo.jpg`；这只是文件名示例，不表示该照片已经存在。
 3. 将 `heroImage` 改为实际路径，例如 `"assets/mountain-photo.jpg"`。默认插画路径为 `assets/alpenglow-anime.png`；若实际文件使用其他扩展名，以实际文件为准。
-4. 根据替换后的图片填写英文 `heroAlt` 和 `heroCaption`。替代文字描述实际可见内容；图片说明只填写能确认的地点、来源或拍摄信息。使用自己的实拍照片后，应同步移除不再适用的生成插画说明。
+4. 根据替换后的图片填写英文 `heroAlt`，描述实际可见内容。`heroCaption` 可保留 `""` 隐藏说明；如需显示，只填写能确认的地点、来源或拍摄信息。使用自己的实拍照片后，应同步移除不再适用的生成插画说明。
 5. 在电脑和手机上预览，确认图片裁切与文字可读性，再把新图片和修改后的 `profile.js` 一起提交。
 
 ## 添加图片与简历

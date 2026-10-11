@@ -6,7 +6,7 @@ window.SITE_PROFILE = {
   portraitAlt: "Portrait of Chenyang He",
   heroImage: "assets/alpenglow-anime.png",
   heroAlt: "An anime-style illustration of golden sunrise on snow-covered mountain peaks.",
-  heroCaption: "Alpenglow · An illustrated mountain morning",
+  heroCaption: "",
   bio: [
     "My research interests include AI for healthcare, multimodal learning, and physiological signal modeling, particularly ECG and PPG."
   ],

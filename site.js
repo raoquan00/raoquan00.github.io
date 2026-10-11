@@ -73,6 +73,8 @@
   if (heroImage) get("hero-image").src = heroImage;
   get("hero-image").alt = str(p.heroAlt) || "Mountain landscape at sunrise.";
   text("hero-caption", p.heroCaption);
+  get("hero-caption").closest("figcaption").hidden = !str(p.heroCaption);
+  get("landscape-caption").hidden = !str(p.heroCaption);
   const bio = list(p.bio).map(str).filter(Boolean);
   if (bio.length) get("bio").replaceChildren(...bio.map(t => el("p", "", t)));
   const portrait = safeUrl(p.portrait);

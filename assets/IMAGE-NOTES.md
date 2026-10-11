@@ -5,6 +5,7 @@ Created with the built-in image generation tool for Chenyang He's academic homep
 - Asset: `alpenglow-anime.png`
 - Dimensions: 1774 × 887 pixels
 - Display: a compact landscape banner on a white page
+- Caption: currently hidden with `heroCaption: ""`. An empty caption hides the entire caption row in both the banner and landscape dialog, including its icon and spacing. `heroAlt` remains available for accessibility.
 
 ## Generation prompt
 
@@ -21,4 +22,4 @@ Constraints: invent an original mountain landscape, not an identifiable named mo
 
 ## Replacing the illustration
 
-Upload your own landscape photograph into this folder, then update `heroImage`, `heroAlt`, and `heroCaption` in `../profile.js`. The page uses an image element with `object-fit: cover`; the original image file is preserved.
+Upload your own landscape photograph into this folder, then update `heroImage` and `heroAlt` in `../profile.js`. The optional `heroCaption` can stay empty to hide it, or contain an accurate English caption. The page uses an image element with `object-fit: cover`; the original image file is preserved.
