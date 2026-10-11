@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Chenyang He's hiking journal. Routes, photographs, and notes from the trail. 何晨阳的徒步记录。">
+  <meta name="theme-color" content="#ffffff">
+  <title>Hiking · Chenyang He</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23354b57'/%3E%3Ctext x='32' y='43' font-family='serif' font-size='37' text-anchor='middle' fill='white'%3EH%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="hiking.css">
+  <script src="hiking-data.js" defer></script>
+  <script src="hiking.js" defer></script>
+</head>
+<body id="top" class="hiking-page">
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+  <header class="topbar">
+    <nav aria-label="Main navigation"><a href="index.html#about" data-i18n="about">About</a><a href="index.html#news" data-i18n="news">News</a><a href="index.html#publications" data-i18n="publications">Selected Publications</a><a href="index.html#experiences" data-i18n="experiences">Experiences</a><a href="hiking.html" aria-current="page" data-i18n="hiking">Hiking</a></nav>
+  </header>
+  <main id="main" class="hiking-main">
+    <div class="journal-toolbar">
+      <a class="journal-home" href="index.html" data-i18n="back">← Academic homepage</a>
+      <div class="language-switch" role="group" aria-label="Language / 语言" hidden>
+        <button type="button" data-language="en" lang="en" aria-pressed="true">EN</button>
+        <span aria-hidden="true">/</span>
+        <button type="button" data-language="zh" lang="zh-CN" aria-pressed="false">中文</button>
+      </div>
+    </div>
+    <header class="journal-intro">
+      <div class="journal-heading">
+        <p class="journal-eyebrow" data-i18n="eyebrow">Chenyang He · Outdoors</p>
+        <h1 data-i18n="title">A journal of trails.</h1>
+        <p class="journal-subtitle" data-i18n="subtitle">Routes walked, views remembered, and notes along the way.</p>
+      </div>
+      <svg class="trail-sketch" viewBox="0 0 320 180" fill="none" aria-hidden="true" focusable="false">
+        <circle cx="238" cy="37" r="15" stroke="#c7a675" stroke-width="1.4"/>
+        <path d="M12 133 83 57 133 113 181 32 287 139M54 88 83 57 103 81M157 73 181 32 210 75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="m68 74 15 11 11-15" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="m159 70 18 9 14-13 16 5M16 146h96m131 0h60" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        <path d="M199 102c-37 8-64 22-35 32s34 20-11 35" stroke="#b89d77" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="3 6"/>
+      </svg>
+    </header>
+    <section class="trail-log" aria-labelledby="trail-log-title">
+      <div class="trail-log-heading">
+        <h2 id="trail-log-title"><span class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" focusable="false"><use href="assets/icons.svg#compass"/></svg></span><span data-i18n="log">Trail log</span></h2>
+        <p id="trail-count" hidden></p>
+      </div>
+      <div id="trail-list"></div>
+      <div id="trail-empty" class="trail-empty">
+        <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" focusable="false"><use href="assets/icons.svg#leaf"/></svg>
+        <h3 data-i18n="emptyTitle">The journal starts here.</h3>
+        <p data-i18n="emptyText">Stories and photographs from the trail are on their way.</p>
+      </div>
+    </section>
+  </main>
+  <footer><span>© <span id="year">2026</span> Chenyang He</span><a href="#top" data-i18n="top">Back to top ↑</a></footer>
+  <noscript><p class="noscript">Enable JavaScript to read trail entries and switch languages. 请启用 JavaScript 查看徒步记录及切换语言。</p></noscript>
+</body>
+</html>

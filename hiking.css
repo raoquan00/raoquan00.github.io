@@ -1,0 +1,56 @@
+.hiking-page { --trail-green: #647965; }
+.hiking-main { max-width: 1080px; margin: 0 auto; padding: 16px 24px 48px; min-height: calc(100svh - 180px); }
+.journal-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.journal-home { font-size: 13px; color: var(--muted); min-height: 44px; display: inline-flex; align-items: center; }
+.language-switch { display: flex; align-items: center; gap: 6px; color: #b3bbb5; font-size: 12px; }
+.language-switch button { border: 0; background: transparent; color: var(--muted); padding: 7px; min-height: 44px; min-width: 44px; font-size: 13px; }
+.language-switch button[aria-pressed="true"] { color: var(--trail-green); font-weight: 600; text-decoration: underline; text-underline-offset: 7px; text-decoration-color: var(--gold); }
+.journal-intro { display: grid; grid-template-columns: minmax(0, 1fr) 300px; align-items: center; gap: 50px; padding: 54px 0 58px; border-bottom: 1px solid var(--line); }
+.journal-eyebrow { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--trail-green); margin-bottom: 13px; }
+.journal-heading h1 { font-size: clamp(30px, 4vw, 44px); line-height: 1.2; font-weight: 500; letter-spacing: -.035em; }
+.journal-subtitle { max-width: 450px; color: var(--muted); font-size: 15px; margin-top: 18px; }
+.trail-sketch { width: 100%; color: #8c9b8b; }
+.trail-log { margin-top: 34px; }
+.trail-log-heading { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.trail-log-heading h2 { display: flex; align-items: center; gap: 10px; margin: 0; font-size: 21px; }
+#trail-count { color: var(--muted); font-size: 12px; }
+.trail-empty { padding: 68px 24px 74px; margin-top: 26px; text-align: center; background: #fafbf9; border: 1px solid #eef1eb; border-radius: 5px; }
+.trail-empty > svg { color: #83917d; margin-bottom: 16px; }
+.trail-empty h3 { font-size: 18px; font-weight: 500; }
+.trail-empty p { margin-top: 8px; font-size: 14px; color: var(--muted); }
+.trail-entry { margin-top: 32px; padding-bottom: 38px; border-bottom: 1px solid var(--line); }
+.trail-entry:last-child { border: 0; padding-bottom: 0; }
+.trail-cover { margin: 0 0 22px; }
+.trail-photo img { display: block; width: 100%; height: auto; border-radius: 4px; }
+.trail-photo figcaption { color: var(--muted); font-size: 12px; margin-top: 8px; }
+.trail-date { display: block; color: var(--trail-green); font-size: 12px; font-variant-numeric: tabular-nums; margin-bottom: 6px; }
+.trail-entry h3 { font-size: 24px; font-weight: 500; line-height: 1.4; }
+.trail-location { color: var(--muted); font-size: 14px; margin-top: 7px; }
+.trail-body { margin-top: 22px; }
+.trail-body.has-map { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 36px; align-items: start; }
+.trail-notes { max-width: 750px; font-size: 15px; line-height: 1.9; }
+.trail-notes p + p { margin-top: 12px; }
+.trail-map:only-child { grid-column: 1 / -1; max-width: 520px; width: 100%; }
+.trail-coordinates { font-size: 11px; color: var(--trail-green); font-variant-numeric: tabular-nums; margin-bottom: 10px; }
+.trail-map iframe { display: block; width: 100%; height: 210px; border: 1px solid var(--line); border-radius: 4px; background: #f6f8f4; }
+.trail-map-link { display: inline-flex; align-items: center; min-height: 44px; font-size: 12px; }
+html[lang="zh-CN"] .journal-heading h1 { letter-spacing: .04em; }
+@media (max-width: 700px) {
+  .journal-intro { grid-template-columns: minmax(0, 1fr) 180px; gap: 24px; padding: 38px 0; }
+  .journal-subtitle { font-size: 14px; }
+  .trail-body.has-map { grid-template-columns: 1fr; gap: 24px; }
+}
+@media (max-width: 540px) {
+  .journal-intro { grid-template-columns: 1fr; gap: 20px; padding-bottom: 26px; }
+  .trail-sketch { max-width: 220px; justify-self: end; }
+  .trail-empty { padding: 45px 18px; }
+}
+@media (max-width: 480px) {
+  .hiking-main { padding: 12px 22px 32px; }
+  .journal-toolbar { gap: 12px; }
+}
+@media print {
+  .journal-toolbar, .trail-sketch { display: none; }
+  .hiking-main { padding: 0; }
+  .trail-entry { break-inside: avoid; }
+}

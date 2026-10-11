@@ -1,6 +1,6 @@
 # 何晨阳的学术主页
 
-这是一个全英文的静态学术主页。主要内容集中在 `profile.js` 中，无需安装依赖或构建工具。本维护说明保留中文，方便日常更新。
+这是一个全英文的静态学术主页，另有支持 EN / 中文切换的独立 **Hiking** 徒步记录页。学术内容集中在 `profile.js` 中，徒步内容集中在 `hiking-data.js` 中；无需安装依赖或构建工具。本维护说明保留中文，方便日常更新。
 
 网站地址：[raoquan00.github.io](https://raoquan00.github.io/) · 维护仓库：[raoquan00/raoquan00.github.io](https://github.com/raoquan00/raoquan00.github.io)。部署是否完成可在仓库的 **Actions** 或 **Settings → Pages** 中查看。
 
@@ -20,16 +20,52 @@
 | `styles.css` | 页面样式与手机布局 |
 | `profile.js` | 姓名、简介、联系方式、动态、论文和经历等个人内容 |
 | `site.js` | 将个人内容显示在页面上 |
+| `hiking.html` | 独立的 Hiking 徒步记录页，通过首页顶部导航进入 |
+| `hiking.css` | 徒步页样式与手机布局 |
+| `hiking-data.js` | 真实徒步记录、中英文文字及照片路径 |
+| `hiking.js` | 徒步记录展示及 EN / 中文切换 |
 | `.nojekyll` | 让 GitHub Pages 直接提供静态文件；上传时也要保留这个隐藏文件 |
-| `assets/` | 个人照片、横幅插画、论文配图、学校标志和简历 PDF |
+| `assets/` | 个人照片、横幅插画、论文配图、学校标志和简历 PDF；徒步照片放在 `assets/hiking/` |
 
-日常更新主要编辑 `profile.js` 中的 `window.SITE_PROFILE` 对象。
+学术内容日常更新主要编辑 `profile.js` 中的 `window.SITE_PROFILE` 对象；徒步页的维护方式见下一节。
+
+## 维护徒步记录
+
+首页顶部的 **Hiking** 链接打开独立的 `hiking.html`。徒步记录不放进学术首页的 About、News、Selected Publications 或 Experiences，也不放进 `profile.js`。该页支持 EN / 中文切换，学术首页继续保持英文。
+
+所有记录保存在 `hiking-data.js` 的 `window.HIKING_JOURNAL.entries` 中。目前没有提供真实路线资料，因此保持空数组：
+
+```javascript
+window.HIKING_JOURNAL = {
+  entries: []
+};
+```
+
+有实际走过的路线后，再向 `entries` 数组添加记录。每条记录以一张本人拍摄的风景照开头，接着显示日期、标题和自己的文字；电脑上地图与文字并排，手机上地图放在文字下方。此处仅说明结构，不提供虚构的路线、日期、坐标或经历。
+
+| 字段 | 填写方式 |
+| --- | --- |
+| `id` | 唯一且稳定的记录标识，使用英文字母、数字和连字符 |
+| `date` | 实际徒步日期，格式为 `YYYY-MM-DD`，不使用网站更新日期代替 |
+| `title` | 可选，路线或记录标题，使用 `{ en: "", zh: "" }` 结构 |
+| `location` | 可选，实际地点名称，使用 `{ en: "", zh: "" }` 结构 |
+| `coordinates` | 实际地点的 WGS84 坐标，使用 `{ lat: 纬度数字, lon: 经度数字 }` 结构；未知时填 `null` |
+| `notes` | 自己写的徒步记录，使用 `{ en: "", zh: "" }` 结构；每种语言都是字符串，段落之间用 `\n\n` 分隔 |
+| `photo` | 一张本人拍摄的风景照，包含 `src`、`alt: { en: "", zh: "" }` 和 `caption: { en: "", zh: "" }` |
+
+同一条记录的 `en` 和 `zh` 应表达相同事实；按实际情况填写地点、路线、日期与坐标，不把计划中的路线写成已经完成。可以先写熟悉的语言：某个字段缺少当前语言时，页面会显示该字段已有的另一种语言内容。正文按普通文字填写，无需编写 HTML。
+
+将实际徒步照片放在 `assets/hiking/` 中，`photo.src` 填相对于网站根目录的文件路径，保留文件名大小写和扩展名。每条记录仅使用一张照片，不维护相册数组。`alt` 填准确的中英文替代文字，`caption` 填中英文照片说明；没有说明时两种语言均可保留空字符串。不要把首页的生成山景插画当作真实徒步照片。
+
+填写有效的 `coordinates` 后，页面会自动通过 OpenStreetMap 的 `export/embed.html` 显示带标记的地图，并提供 **View larger map / 查看大地图** 链接，无需申请地图密钥。地图可显示的纬度 `lat` 范围为 -85.0511 到 85.0511，经度 `lon` 范围为 -180 到 180；填写数字，不附带度数符号。坐标未知时保留 `coordinates: null`，地图会隐藏，不要编造坐标或用零代替未知位置。嵌入方式见 [OpenStreetMap 官方导出说明](https://wiki.openstreetmap.org/wiki/Export)。
+
+修改后无需构建，直接预览 `hiking.html` 即可。发布时将 `hiking-data.js` 与新增照片一起提交；首次发布还需包含 `hiking.html`、`hiking.css` 和 `hiking.js`。仅修改照片路径不会自动上传照片。
 
 ## 维护个人内容
 
 目前已根据你提供的 CV 填入简介、经历、邮箱和 Google Scholar。简介用一段简短英文说明研究兴趣；经历按最近到最早排列为北京大学 Research Assistant、南京航空航天大学 Research Assistant、北京邮电大学硕士、北邮与 QMUL 联合培养本科。论文区统一使用 **Selected Publications** 列表，按顺序展示你指定的 2 篇第一作者工作：AnyECG-Echo、CAP。AnyECG-Echo 显示 `UR`（Under Review）；CAP 显示 `KDD 2026` 和 `Oral`，不显示投稿期刊，也不另设在审稿件分组。未提供的年份和论文链接保持为空。简介主标题和网页显示名使用 `englishName`（`Chenyang He`），`name` 仍可保存中文姓名。
 
-网页中的简介、消息、经历、论文、链接名称和图片说明均使用英文。下面是主要数据字段的示例，用于说明填写方式；其中 `Biography to be added.` 等文字只是占位文案，不代表实际身份或经历。请以文件中的当前内容为基础修改，不要覆盖已经补充好的资料。
+学术首页中的简介、消息、经历、论文、链接名称和图片说明均使用英文。下面是主要数据字段的示例，用于说明填写方式；其中 `Biography to be added.` 等文字只是占位文案，不代表实际身份或经历。请以文件中的当前内容为基础修改，不要覆盖已经补充好的资料。
 
 ```javascript
 window.SITE_PROFILE = {
@@ -190,7 +226,7 @@ window.SITE_PROFILE = {
 
 发布配置如下，日常更新无需重复配置：
 
-1. 网站文件位于仓库的 **main** 分支根目录，包括 `index.html`、`styles.css`、`profile.js`、`site.js`、`.nojekyll` 和 `assets/`，不要在外面再套一层文件夹。
+1. 网站文件位于仓库的 **main** 分支根目录，包括 `index.html`、`styles.css`、`profile.js`、`site.js`、`hiking.html`、`hiking.css`、`hiking-data.js`、`hiking.js`、`.nojekyll` 和 `assets/`，不要在外面再套一层文件夹。
 2. 在仓库 **Settings → Pages → Build and deployment** 中，**Source** 使用 **Deploy from a branch**，分支选择 **main**，文件夹选择 **/(root)**。
 3. 每次提交后，在 **Actions** 或 **Settings → Pages** 检查部署结果，再打开主页确认实际效果。
 
@@ -200,8 +236,8 @@ window.SITE_PROFILE = {
 
 ## 后续更新
 
-编辑 `profile.js`，连同新增附件提交并推送到 `main`，GitHub Pages 就会自动重新发布。也可以在 GitHub 网页上直接编辑该文件并提交更改。
+学术内容编辑 `profile.js`，徒步记录编辑 `hiking-data.js`；连同新增附件提交并推送到 `main`，GitHub Pages 就会自动重新发布。也可以在 GitHub 网页上直接编辑相应文件并提交更改。
 
-发布前后检查姓名、单位、成果状态及链接是否准确，确认网页可见内容均为英文，并用手机查看一次。若更新没有出现，先检查仓库中的最新提交与部署状态，再刷新页面；不要仅凭已提交文件就判断发布成功。
+发布前后检查姓名、单位、成果状态及链接是否准确，确认学术首页内容为英文，徒步页中英文内容与真实记录一致，并用手机查看一次。若更新没有出现，先检查仓库中的最新提交与部署状态，再刷新页面；不要仅凭已提交文件就判断发布成功。
 
-如果页面内容突然消失，先检查刚编辑的 `profile.js` 是否缺少引号、逗号或括号。修复后重新提交即可。
+如果页面内容突然消失，先检查刚编辑的 `profile.js` 或 `hiking-data.js` 是否缺少引号、逗号或括号。修复后重新提交即可。

@@ -25,7 +25,7 @@ p, h1, h2, h3, h4, a { overflow-wrap: anywhere; }
 .skip-link:focus { top: 8px; }
 .topbar { max-width: 1080px; margin: auto; min-height: 88px; padding: 18px 24px; display: flex; justify-content: flex-end; align-items: center; gap: 24px; position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.97); border-bottom: 1px solid transparent; transition: border-color .2s ease, box-shadow .2s ease; }
 .topbar.is-scrolled { border-color: var(--line); box-shadow: 0 8px 22px -22px #26323a; }
-.topbar nav { display: flex; gap: 26px; }
+.topbar nav { display: flex; flex-wrap: wrap; gap: 0 26px; }
 .topbar nav a { color: #56636c; font-size: 14px; min-height: 44px; display: flex; align-items: center; position: relative; }
 .topbar nav a::after { content: ''; position: absolute; left: 0; right: 0; bottom: 4px; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform .2s ease; }
 .topbar nav a:hover, .topbar nav a:focus-visible, .topbar nav a[aria-current] { color: var(--ink); text-decoration: none; }
@@ -148,7 +148,7 @@ footer a { color: var(--muted); display: flex; align-items: center; min-height: 
   .about-layout, .about-layout:has(.about-portrait:not([hidden])) { grid-template-columns: minmax(0, 1fr); gap: 24px; }
   .about-portrait { grid-row: 1; width: 138px; }
   .topbar { flex-direction: column; align-items: flex-start; gap: 0; }
-  .topbar nav { width: 100%; justify-content: space-between; gap: 4px; }
+  .topbar nav { width: 100%; justify-content: flex-start; gap: 0 16px; }
   .news-entry { grid-template-columns: minmax(0, 1fr); gap: 2px; }
   .news-entry + .news-entry { margin-top: 20px; }
   .publication-content { margin-top: 15px; }
@@ -157,7 +157,7 @@ footer a { color: var(--muted); display: flex; align-items: center; min-height: 
 @media (max-width: 480px) {
   :root { --header-offset: 120px; }
   .topbar { flex-direction: column; align-items: flex-start; gap: 0; padding: 16px 22px 7px; }
-  .topbar nav { width: 100%; justify-content: space-between; }
+  .topbar nav { width: 100%; justify-content: flex-start; }
   .topbar nav a { font-size: 13px; }
   .mountain-banner { margin-left: 22px; margin-right: 22px; }
   .mountain-banner img { height: 150px; object-position: 62% 46%; }

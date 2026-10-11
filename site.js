@@ -281,7 +281,7 @@
 
   // Anchor selection stays stable during smooth scrolling and near page end.
   const header = document.querySelector(".topbar");
-  const nav = [...document.querySelectorAll("nav a")];
+  const nav = [...document.querySelectorAll('nav a[href^="#"]')];
   const sections = nav.map(a => document.querySelector(a.hash));
   let anchorSelection = null;
   let framePending = false;
