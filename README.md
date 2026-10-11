@@ -2,7 +2,7 @@
 
 这是一个全英文的静态学术主页。主要内容集中在 `profile.js` 中，无需安装依赖或构建工具。本维护说明保留中文，方便日常更新。
 
-网站地址：[gody123gody.github.io](https://gody123gody.github.io/) · 维护仓库：[gody123gody/gody123gody.github.io](https://github.com/gody123gody/gody123gody.github.io)。部署是否完成可在仓库的 **Actions** 或 **Settings → Pages** 中查看。
+网站地址：[raoquan00.github.io](https://raoquan00.github.io/) · 维护仓库：[raoquan00/raoquan00.github.io](https://github.com/raoquan00/raoquan00.github.io)。部署是否完成可在仓库的 **Actions** 或 **Settings → Pages** 中查看。
 
 页面以纯白为底，只在顶部用一条动漫日照金山横幅点缀；正文采用常规英文学术主页排版。当前横幅是生成插画，不是何晨阳拍摄的照片，也不代表真实拍摄经历。之后可以替换为自己的实拍照片，并按实际内容更新英文图片说明。
 
@@ -41,7 +41,7 @@ window.SITE_PROFILE = {
   portrait: "assets/portrait.jpg",
   portraitAlt: "Portrait of Chenyang He",
   email: "",
-  github: "https://github.com/gody123gody",
+  github: "https://github.com/raoquan00",
   scholar: "",
   orcid: "",
   cv: "",
@@ -186,13 +186,15 @@ window.SITE_PROFILE = {
 
 ## GitHub Pages 发布配置
 
-网站使用 `gody123gody` 账号下的公开仓库 [gody123gody.github.io](https://github.com/gody123gody/gody123gody.github.io)，对应主页地址为 [https://gody123gody.github.io/](https://gody123gody.github.io/)。
+网站使用 `raoquan00` 账号下的公开仓库 [raoquan00.github.io](https://github.com/raoquan00/raoquan00.github.io)，对应主页地址为 [https://raoquan00.github.io/](https://raoquan00.github.io/)。
 
 发布配置如下，日常更新无需重复配置：
 
 1. 网站文件位于仓库的 **main** 分支根目录，包括 `index.html`、`styles.css`、`profile.js`、`site.js`、`.nojekyll` 和 `assets/`，不要在外面再套一层文件夹。
 2. 在仓库 **Settings → Pages → Build and deployment** 中，**Source** 使用 **Deploy from a branch**，分支选择 **main**，文件夹选择 **/(root)**。
 3. 每次提交后，在 **Actions** 或 **Settings → Pages** 检查部署结果，再打开主页确认实际效果。
+
+账号改名后，请将已分享的个人主页链接更新为 `https://raoquan00.github.io/`；旧网址不应再作为主页入口。
 
 `github.io` 根站点域名与 GitHub 账号或组织名称绑定，不能通过修改页面内容更改。以后若购买个人域名，可以在 **Settings → Pages → Custom domain** 中绑定，并按 GitHub 的提示配置域名解析。
 

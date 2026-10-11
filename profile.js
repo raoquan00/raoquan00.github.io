@@ -11,7 +11,7 @@ window.SITE_PROFILE = {
     "My research interests include AI for healthcare, multimodal learning, and physiological signal modeling, particularly ECG and PPG."
   ],
   email: "raoquan00@gmail.com",
-  github: "https://github.com/gody123gody",
+  github: "https://github.com/raoquan00",
   scholar: "https://scholar.google.com/citations?user=Td1kNK8AAAAJ&hl=en",
   orcid: "",
   cv: "", // 如需提供 CV 下载，请上传确认后的 PDF 并填写路径。
