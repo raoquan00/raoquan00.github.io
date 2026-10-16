@@ -20,10 +20,12 @@
 | `styles.css` | 页面样式与手机布局 |
 | `profile.js` | 姓名、简介、联系方式、动态、论文和经历等个人内容 |
 | `site.js` | 将个人内容显示在页面上 |
+| `visitors.js` | 访客地图、本地预览与正式统计的加载逻辑 |
 | `hiking.html` | 独立的 Hiking 徒步记录页，通过首页顶部导航进入 |
 | `hiking.css` | 徒步页样式与手机布局 |
 | `hiking-data.js` | 真实徒步记录、中英文文字及照片路径 |
-| `hiking.js` | 徒步记录展示及 EN / 中文切换 |
+| `hiking.js` | 徒步记录展示、照片放大及 EN / 中文切换 |
+| `hiking-sample.js` | 仅本地预览时显示的虚构样稿，不覆盖已有真实记录 |
 | `.nojekyll` | 让 GitHub Pages 直接提供静态文件；上传时也要保留这个隐藏文件 |
 | `assets/` | 个人照片、横幅插画、论文配图、学校标志和简历 PDF；徒步照片放在 `assets/hiking/` |
 
@@ -33,6 +35,8 @@
 
 首页顶部的 **Hiking** 链接打开独立的 `hiking.html`。徒步记录不放进学术首页的 About、News、Selected Publications 或 Experiences，也不放进 `profile.js`。该页支持 EN / 中文切换，学术首页继续保持英文。
 
+徒步页采用白底游记排版，日期、照片、文字与地图依次呈现。`hiking-sample.js` 仅在 localhost / 127.0.0.1 等本地地址、且没有真实记录时添加一条明确标注的虚构样稿；公开网址不会显示它。示例照片使用现有生成插画，`assets/hiking/sample-map.svg` 是等高线地图示意，不代表真实地点。
+
 所有记录保存在 `hiking-data.js` 的 `window.HIKING_JOURNAL.entries` 中。目前没有提供真实路线资料，因此保持空数组：
 
 ```javascript
@@ -41,7 +45,7 @@ window.HIKING_JOURNAL = {
 };
 ```
 
-有实际走过的路线后，再向 `entries` 数组添加记录。每条记录以一张本人拍摄的风景照开头，接着显示日期、标题和自己的文字；电脑上地图与文字并排，手机上地图放在文字下方。此处仅说明结构，不提供虚构的路线、日期、坐标或经历。
+有实际走过的路线后，再向 `entries` 数组添加记录。每条记录先显示日期、标题和地点，接着是一张本人拍摄的完整风景照，点击可放大查看。下方展示自己的文字；电脑上地图与文字并排，手机上地图放在文字下方。此处仅说明结构，不提供虚构的路线、日期、坐标或经历。
 
 | 字段 | 填写方式 |
 | --- | --- |
@@ -175,7 +179,7 @@ window.SITE_PROFILE = {
 
 ## 维护 Experiences
 
-页面最底部的 **Experiences** 汇总任职和教育经历。编辑 `profile.js` 中的 `experiences` 数组，并按最近到最早的顺序放置记录。当前顺序为北京大学 RA、南京航空航天大学 RA、北邮硕士、北邮与 QMUL 联合培养本科；日期、职位、学位和奖项以用户提供及确认的内容为准，不根据网站更新时间推断经历。
+页面下方的 **Experiences** 汇总任职和教育经历。编辑 `profile.js` 中的 `experiences` 数组，并按最近到最早的顺序放置记录。当前顺序为北京大学 RA、南京航空航天大学 RA、北邮硕士、北邮与 QMUL 联合培养本科；日期、职位、学位和奖项以用户提供及确认的内容为准，不根据网站更新时间推断经历。
 
 以下是字段模板，**不是一条真实经历**。填写真实内容后再加入数组：
 
@@ -221,6 +225,23 @@ window.SITE_PROFILE = {
 个人照片通过 `portrait` 引用，显示在 About 旁；论文配图通过对应论文记录的 `image` 引用，显示在论文文字上方；校徽通过经历记录的 `logo` 引用，显示在对应机构旁。简历 PDF 通过 `cv` 引用，下载链接与 About 下方的联系方式并列显示。若下载链接尚未出现，先确认 `cv` 已填写为实际文件路径。
 
 ## GitHub Pages 发布配置
+
+### 访客世界地图（尚未接入真实统计）
+
+首页 Experiences 后新增 **Visitors**。本地显示白底淡绿色世界地图、访问次数和国家/地区数的空位；破折号表示未接入，不代表零访问量。地图来自 [Natural Earth 公共领域地理数据](https://www.naturalearthdata.com/about/terms-of-use/)，没有添加模拟访客点。
+
+目前尚未配置真实计数器，线上会隐藏此栏目，本地继续显示版式预览。正式启用需要为本站生成一个独立的 [Flag Counter](https://www.flagcounter.com/) 计数器：选择 **Flag Map**、启用 **Show Pageview Count**，背景和边框选白色。邮箱可选，生成时可跳过；不要借用其他网站的计数器 ID。
+
+将官方生成的图片地址和统计详情链接分别填入 `profile.js` 的 `visitors.imageUrl` 和 `visitors.detailsUrl`，使用 HTTPS。保留完整链接中的计数器 ID 和显示参数。图片由服务商生成，正式接入后的地图标记和计数排版以其实际输出为准；当前自绘底图只是本地版式预览和加载失败时的备用图。
+
+- `visitors.enabled: false` 可关闭整个栏目。
+- `productionHosts` 目前仅包含 `raoquan00.github.io`，只有此正式域名会加载统计图片；本地预览始终不计数。未配置或不在此域名时，不对外展示空统计。
+- 图片会在首页打开时加载，无需滑到底部才计数；统计仅覆盖本首页，不包含独立徒步页。若服务加载失败，保留底图和详情链接，并标注暂时不可用。
+- Page views 是累计图片请求次数，刷新也会增加；不能称作累计独立人数。Flag Counter 的 visitors 默认按 24 小时去重；免费图片显示可能延迟约 5 分钟，连续 30 天无新访客可能被删除。详见[官方 FAQ](https://www.flagcounter.com/faq.html)。
+- 国家/地区由服务商按网络 IP 粗略判断；嵌入图片不请求 GPS。服务商会接收网络请求信息，详见[隐私说明](https://www.flagcounter.com/privacy.html)。
+- 上线时还需包含 `visitors.js` 和 `assets/visitor-world.svg`。确认真实地图、计数和详情链接均正常后，再视为接入完成。
+
+### 当前线上配置
 
 网站使用 `raoquan00` 账号下的公开仓库 [raoquan00.github.io](https://github.com/raoquan00/raoquan00.github.io)，对应主页地址为 [https://raoquan00.github.io/](https://raoquan00.github.io/)。
 

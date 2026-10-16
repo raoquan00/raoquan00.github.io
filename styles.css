@@ -99,6 +99,26 @@ h3 { font-size: 16px; font-weight: 600; line-height: 1.5; }
 .experience-role { font-size: 15px; margin-top: 3px; }
 .experience-detail { font-size: 13px; color: var(--muted); margin-top: 5px; }
 .content-section.experiences-section { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
+.visitors-section { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--line); }
+.visitors-heading { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 22px; }
+.visitors-heading h2 { display: flex; align-items: center; gap: 10px; margin-bottom: 5px; }
+.visitors-intro { margin-left: 32px; color: var(--muted); font-size: 13px; }
+.visitors-preview-label { padding: 4px 9px; border: 1px solid #e5e9e1; border-radius: 3px; color: #788270; font-size: 10px; letter-spacing: .03em; white-space: nowrap; }
+.visitors-panel { border: 1px solid #e5ebe3; border-radius: 5px; padding: 25px 30px 0; }
+.visitors-summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.visitors-map-label { color: #7b897b; font-size: 10px; letter-spacing: .13em; text-transform: uppercase; }
+.visitors-counts { display: flex; gap: 28px; margin: 0; }
+.visitors-counts > div { display: flex; align-items: center; gap: 10px; }
+.visitors-counts dt { color: var(--muted); font-size: 11px; }
+.visitors-counts dd { margin: 0; color: #71816e; font-size: 21px; font-weight: 500; line-height: 1.2; }
+.visitors-base-map { display: block; width: min(100%, 620px); height: auto; margin: 18px auto 12px; }
+.visitors-live-link { display: block; max-width: 620px; margin: 0 auto 20px; }
+.visitors-live-link img { display: block; max-width: 100%; height: auto; margin: auto; }
+.visitors-caption { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px 20px; border-top: 1px solid #edf0eb; padding: 13px 0; color: #788175; font-size: 10px; }
+.visitors-map-key { display: inline-flex; align-items: center; gap: 7px; }
+.visitors-map-key > span { width: 5px; height: 5px; border: 1px solid #8f9f87; border-radius: 50%; }
+.visitors-caption a { color: #596f58; }
+.visitors-note { color: #7e877b; font-size: 10px; margin-top: 10px; text-align: right; }
 .publication { padding: 34px 0; }
 .publication:first-child { padding-top: 0; }
 .publication + .publication { border-top: 1px solid var(--line); }
@@ -126,6 +146,9 @@ footer a { color: var(--muted); display: flex; align-items: center; min-height: 
   .mountain-banner, footer { margin-left: 24px; margin-right: 24px; }
 }
 @media (max-width: 700px) {
+  .visitors-panel { padding: 19px 20px 0; }
+  .visitors-summary { align-items: flex-start; }
+  .visitors-counts { gap: 16px; }
   .topbar { min-height: 76px; gap: 16px; }
   .topbar nav { gap: 17px; }
   .topbar nav a { font-size: 12px; }
@@ -144,6 +167,15 @@ footer a { color: var(--muted); display: flex; align-items: center; min-height: 
   .about-section, .content-section { margin-bottom: 27px; padding-bottom: 27px; }
 }
 @media (max-width: 540px) {
+  .visitors-heading { align-items: flex-start; gap: 12px; }
+  .visitors-section { margin-top: 32px; padding-top: 27px; }
+  .visitors-panel { padding: 18px 15px 0; }
+  .visitors-summary { flex-direction: column; gap: 14px; }
+  .visitors-counts { width: 100%; justify-content: space-between; gap: 12px; }
+  .visitors-counts > div { gap: 8px; }
+  .visitors-counts dt { font-size: 10px; }
+  .visitors-base-map { margin: 20px auto; }
+  .visitors-note { text-align: left; }
   :root { --header-offset: 120px; }
   .about-layout, .about-layout:has(.about-portrait:not([hidden])) { grid-template-columns: minmax(0, 1fr); gap: 24px; }
   .about-portrait { grid-row: 1; width: 138px; }
@@ -167,6 +199,7 @@ footer a { color: var(--muted); display: flex; align-items: center; min-height: 
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
 @media print {
+  .visitors-section { display: none; }
   .topbar, .mountain-banner, footer, .skip-link, dialog { display: none; }
   .content-layout { display: block; padding: 0; }
   .publication, .experience-entry { break-inside: avoid; }

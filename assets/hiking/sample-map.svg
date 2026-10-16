@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="440" viewBox="0 0 640 440" fill="none" role="img" aria-labelledby="map-title map-description">
+  <title id="map-title">Illustrative terrain map · 地形示意图</title>
+  <desc id="map-description">A fictional, softly drawn terrain study with contour lines, a dashed walking trail, and one location marker. No real location is represented.</desc>
+  <defs>
+    <clipPath id="map-crop"><rect width="640" height="440" rx="3"/></clipPath>
+    <linearGradient id="paper" x1="88" y1="0" x2="557" y2="440" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F3F3E9"/>
+      <stop offset="1" stop-color="#E9ECDD"/>
+    </linearGradient>
+  </defs>
+  <g clip-path="url(#map-crop)">
+    <rect width="640" height="440" fill="url(#paper)"/>
+
+    <!-- Broad landforms are deliberately abstract and have no geographic reference. -->
+    <path d="M-38 52C63 18 108 50 156 104C210 165 228 204 312 234C391 262 438 242 499 294C544 332 559 402 688 403V483H-38Z" fill="#D8E0CB" opacity=".48"/>
+    <path d="M314-36C303 49 375 64 409 100C445 138 431 167 477 185C527 205 591 174 678 212V-36Z" fill="#D7DFCB" opacity=".44"/>
+
+    <g stroke="#98A68D" stroke-width=".85" opacity=".56" stroke-linecap="round">
+      <path d="M-39 10C26-8 68 1 107 25C165 61 177 120 232 161C291 205 348 198 404 223C467 251 482 316 540 346C580 367 628 361 681 379"/>
+      <path d="M-35 28C28 8 65 20 98 44C149 81 161 131 215 176C274 225 340 213 393 241C450 271 467 333 528 364C577 389 625 380 677 399"/>
+      <path d="M-31 48C22 28 60 37 87 60C135 99 145 152 196 192C251 236 327 233 379 258C433 285 451 349 513 384C559 410 612 401 671 422"/>
+      <path d="M-31 69C17 47 51 54 76 77C119 116 128 165 177 205C232 251 308 250 363 277C416 303 434 365 498 403C547 432 607 423 665 445"/>
+      <path d="M-31 92C8 70 39 71 64 95C102 131 112 180 159 221C208 264 291 268 347 295C399 320 417 384 482 422C513 440 547 443 578 448"/>
+      <path d="M-32 119C4 94 27 92 49 114C83 148 94 197 137 235C185 278 267 285 329 312C381 335 400 403 463 439"/>
+      <path d="M-34 148C-3 122 14 116 35 137C67 169 76 212 117 251C163 296 244 302 307 330C357 352 382 423 438 453"/>
+      <path d="M-34 179C-10 154 4 143 20 161C45 190 55 228 96 268C140 311 218 319 283 348C330 369 355 434 398 456"/>
+      <path d="M-31 211C-9 184-1 174 13 201C30 232 40 250 76 284C115 321 191 338 254 366C298 386 324 433 341 454"/>
+      <path d="M-29 247C-10 215-3 224 9 248C25 277 53 298 84 316C127 342 181 354 223 382C254 402 277 430 291 451"/>
+      <path d="M-21 282C-5 256 0 276 21 297C59 334 120 354 167 380C205 401 227 426 242 448"/>
+      <path d="M-14 321C-2 299 12 320 42 340C79 365 130 378 166 409C181 422 193 437 201 453"/>
+      <path d="M-15 360C1 341 21 359 52 377C83 395 115 406 141 433C148 440 153 449 157 456"/>
+    </g>
+
+    <g stroke="#98A68D" stroke-width=".8" opacity=".47">
+      <path d="M287-22C275 26 295 61 329 85C363 109 379 118 393 150C410 189 443 216 487 222C544 230 594 206 662 235"/>
+      <path d="M308-23C295 21 311 51 346 74C379 96 396 112 410 142C428 181 449 198 489 203C545 210 594 189 661 215"/>
+      <path d="M330-24C317 13 329 41 364 64C395 85 413 105 428 133C445 165 460 181 494 185C550 192 600 175 661 197"/>
+      <path d="M353-24C339 12 352 34 384 55C411 73 431 96 446 124C460 150 474 164 505 167C557 172 601 162 661 178"/>
+      <path d="M379-25C365 7 377 24 405 43C430 59 451 85 466 111C480 135 490 148 520 151C566 155 607 148 661 160"/>
+      <path d="M406-24C393-1 404 15 426 30C451 47 473 73 487 97C500 119 512 131 539 134C578 138 614 134 661 143"/>
+      <path d="M437-26C423-5 432 8 452 24C477 43 494 61 510 85C524 106 538 115 561 117C597 121 626 120 662 127"/>
+      <path d="M466-24C454-6 462 5 481 20C505 39 520 58 536 77C550 94 566 98 586 100C616 103 636 103 662 109"/>
+      <path d="M497-22C487-7 494 3 512 17C533 34 546 49 563 65C579 81 597 82 616 84C635 86 648 87 662 91"/>
+    </g>
+
+    <!-- A faint drainage line gives the contour drawing a quiet visual counterpoint. -->
+    <path d="M259-12C251 37 246 65 265 94C287 127 326 140 347 163C363 181 360 203 376 222C393 243 411 242 426 267C436 284 434 311 451 330C468 349 484 351 489 371C494 388 489 420 509 450" stroke="#B5C6BD" stroke-width="2.3" opacity=".66"/>
+    <path d="M260-12C252 37 247 65 266 94C288 127 327 140 348 163C364 181 361 203 377 222C394 243 412 242 427 267C437 284 435 311 452 330C469 349 485 351 490 371C495 388 490 420 510 450" stroke="#F5F5ED" stroke-width=".7" opacity=".8"/>
+
+    <path d="M118 333C137 321 151 312 163 299C178 283 185 265 204 258C227 249 249 259 268 245C289 229 282 208 302 193C321 179 347 192 365 178C381 166 381 148 401 143C415 139 426 142 441 129" stroke="#F2F2E7" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M118 333C137 321 151 312 163 299C178 283 185 265 204 258C227 249 249 259 268 245C289 229 282 208 302 193C321 179 347 192 365 178C381 166 381 148 401 143C415 139 426 142 441 129" stroke="#52674D" stroke-width="1.7" stroke-dasharray="4 6" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- One quiet location marker. -->
+    <circle cx="441" cy="128" r="14" fill="#F3F3E9" opacity=".82"/>
+    <path d="M441 130.5C441 130.5 448 122.9 448 118.8C448 114.5 444.9 111.5 441 111.5C437.1 111.5 434 114.5 434 118.8C434 122.9 441 130.5 441 130.5Z" fill="#50634A" stroke="#F3F3E9" stroke-width="1.6"/>
+    <circle cx="441" cy="118.6" r="2.1" fill="#F3F3E9"/>
+
+    <g transform="translate(597 40)" stroke="#68775F" stroke-width=".9" opacity=".8">
+      <path d="M0 33V14M-4 21L0 14L4 21" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="0" y="3" text-anchor="middle" fill="#68775F" stroke="none" font-family="Arial, sans-serif" font-size="8" letter-spacing="1">N</text>
+    </g>
+
+    <rect y="393" width="640" height="47" fill="#EEF0E4" opacity=".92"/>
+    <path d="M24 404H616" stroke="#98A68D" stroke-width=".6" opacity=".4"/>
+    <text x="25" y="424" fill="#74806B" font-family="Arial, 'PingFang SC', 'Noto Sans CJK SC', sans-serif" font-size="9" letter-spacing=".65">Illustrative map · 地图示意</text>
+  </g>
+</svg>

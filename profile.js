@@ -15,6 +15,14 @@ window.SITE_PROFILE = {
   scholar: "https://scholar.google.com/citations?user=Td1kNK8AAAAJ&hl=en",
   orcid: "",
   cv: "", // 如需提供 CV 下载，请上传确认后的 PDF 并填写路径。
+  // 访客地图：先本地预览。确认后填写 Flag Counter 官方生成的两个 HTTPS 链接。
+  // 不要复制他人的计数器 ID。本地不会加载统计服务；无有效配置时线上隐藏此栏目。
+  visitors: {
+    enabled: true,
+    productionHosts: ["raoquan00.github.io"],
+    imageUrl: "", // Flag Map 图片地址（生成代码里的 img src）。
+    detailsUrl: "" // 对应统计页地址（生成代码里的 a href）。
+  },
   // News 可放合作论文、接收消息或其他学术动态。这里只填真实消息日期，不以网站更新时间代替。
   // date 保存完整日期用于排序；页面按 [MM/YYYY] 展示。未知保留 ""。
   news: [
@@ -54,7 +62,7 @@ window.SITE_PROFILE = {
       links: []
     }
   ],
-  // 页面最下方 Experiences，从最近到最早排列；logo 使用本地校徽文件。
+  // Experiences 从最近到最早排列；logo 使用本地校徽文件。
   experiences: [
     {
       institution: "Peking University",

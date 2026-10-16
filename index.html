@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="styles.css">
   <script src="profile.js" defer></script>
   <script src="site.js" defer></script>
+  <script src="visitors.js" defer></script>
 </head>
 <body id="top">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -60,6 +61,34 @@
       <section id="experiences" class="content-section experiences-section" aria-labelledby="experiences-title">
         <h2 id="experiences-title"><span class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" focusable="false"><use href="assets/icons.svg#mountain"/></svg></span>Experiences</h2>
         <div id="experience-list"></div>
+      </section>
+      <section id="visitors" class="visitors-section" aria-labelledby="visitors-title" hidden>
+        <div class="visitors-heading">
+          <div>
+            <h2 id="visitors-title"><span class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18M5 6.5c4 2 10 2 14 0M5 17.5c4-2 10-2 14 0"/></svg></span>Visitors</h2>
+            <p class="visitors-intro">A small window to the world.</p>
+          </div>
+          <span id="visitors-preview-label" class="visitors-preview-label">Local preview</span>
+        </div>
+        <div class="visitors-panel">
+          <div id="visitors-placeholder" class="visitors-placeholder">
+            <div class="visitors-summary">
+              <p class="visitors-map-label">Around the world</p>
+              <dl class="visitors-counts" aria-label="Visitor statistics are not connected">
+                <div><dt>Page views</dt><dd aria-label="Not available">—</dd></div>
+                <div><dt>Countries / regions</dt><dd aria-label="Not available">—</dd></div>
+              </dl>
+            </div>
+            <img class="visitors-base-map" src="assets/visitor-world.svg" alt="World map. Visitor locations will appear when statistics are connected." width="900" height="400" loading="lazy" decoding="async">
+          </div>
+          <a id="visitors-live-link" class="visitors-live-link" target="_blank" rel="noopener noreferrer" aria-label="Open detailed visitor statistics" hidden></a>
+          <div class="visitors-caption">
+            <span class="visitors-map-key"><span aria-hidden="true"></span>Country / region distribution</span>
+            <a id="visitors-details" target="_blank" rel="noopener noreferrer" hidden>View statistics <span aria-hidden="true">↗</span></a>
+            <span id="visitors-status">Statistics not connected</span>
+          </div>
+        </div>
+        <p id="visitors-note" class="visitors-note">Preview only · No visits are recorded locally.</p>
       </section>
     </main>
   </div>

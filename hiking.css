@@ -1,56 +1,124 @@
-.hiking-page { --trail-green: #647965; }
-.hiking-main { max-width: 1080px; margin: 0 auto; padding: 16px 24px 48px; min-height: calc(100svh - 180px); }
+.hiking-page {
+  --trail-green: #526957;
+  --trail-ink: #293d32;
+  --trail-muted: #7a827a;
+  --trail-line: #e3e7df;
+  --journal-serif: Georgia, 'Songti SC', 'STSong', 'Noto Serif CJK SC', serif;
+  color: var(--trail-ink);
+}
+.hiking-page .topbar { justify-content: space-between; min-height: 96px; border-bottom: 1px solid var(--trail-line); }
+.journal-wordmark { display: inline-flex; align-items: center; gap: 10px; color: var(--trail-green); white-space: nowrap; font-size: 10px; letter-spacing: .17em; min-height: 44px; }
+.journal-wordmark:hover { text-decoration: none; }
+.hiking-page .topbar nav { gap: 0 23px; }
+.hiking-page .topbar nav a { font-size: 12px; }
+.hiking-main { max-width: 1080px; margin: 0 auto; padding: 25px 24px 70px; min-height: calc(100svh - 180px); }
 .journal-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-.journal-home { font-size: 13px; color: var(--muted); min-height: 44px; display: inline-flex; align-items: center; }
-.language-switch { display: flex; align-items: center; gap: 6px; color: #b3bbb5; font-size: 12px; }
-.language-switch button { border: 0; background: transparent; color: var(--muted); padding: 7px; min-height: 44px; min-width: 44px; font-size: 13px; }
-.language-switch button[aria-pressed="true"] { color: var(--trail-green); font-weight: 600; text-decoration: underline; text-underline-offset: 7px; text-decoration-color: var(--gold); }
-.journal-intro { display: grid; grid-template-columns: minmax(0, 1fr) 300px; align-items: center; gap: 50px; padding: 54px 0 58px; border-bottom: 1px solid var(--line); }
-.journal-eyebrow { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--trail-green); margin-bottom: 13px; }
-.journal-heading h1 { font-size: clamp(30px, 4vw, 44px); line-height: 1.2; font-weight: 500; letter-spacing: -.035em; }
-.journal-subtitle { max-width: 450px; color: var(--muted); font-size: 15px; margin-top: 18px; }
-.trail-sketch { width: 100%; color: #8c9b8b; }
-.trail-log { margin-top: 34px; }
-.trail-log-heading { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.trail-log-heading h2 { display: flex; align-items: center; gap: 10px; margin: 0; font-size: 21px; }
-#trail-count { color: var(--muted); font-size: 12px; }
-.trail-empty { padding: 68px 24px 74px; margin-top: 26px; text-align: center; background: #fafbf9; border: 1px solid #eef1eb; border-radius: 5px; }
+.journal-home { font-size: 11px; color: var(--trail-muted); min-height: 44px; display: inline-flex; align-items: center; }
+.language-switch { display: flex; align-items: center; gap: 2px; color: #c5cbc3; font-size: 11px; }
+.language-switch button { border: 0; background: transparent; color: var(--trail-muted); padding: 7px; min-height: 44px; min-width: 44px; font-size: 12px; }
+.language-switch button[aria-pressed="true"] { color: var(--trail-ink); font-weight: 600; text-decoration: underline; text-underline-offset: 7px; text-decoration-color: var(--gold); }
+.journal-intro { display: grid; grid-template-columns: minmax(0, 1fr) 265px; align-items: end; gap: 52px; padding: 40px 0 50px; border-bottom: 1px solid var(--trail-line); }
+.journal-eyebrow { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--trail-muted); margin-bottom: 18px; }
+.journal-heading h1 { font-family: var(--journal-serif); font-size: clamp(38px, 4.6vw, 59px); line-height: 1.15; font-weight: 400; letter-spacing: -.04em; }
+.journal-intro-note { padding-bottom: 4px; }
+.journal-intro-note > svg { display: block; color: #a2aa96; margin-bottom: 11px; }
+.journal-subtitle { color: var(--trail-muted); font-size: 13px; line-height: 1.95; }
+.trail-log { margin-top: 25px; }
+.trail-log-heading { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-bottom: 22px; }
+.trail-log-heading h2 { display: flex; align-items: center; gap: 15px; margin: 0; font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; }
+.journal-index { font-family: var(--journal-serif); font-size: 15px; color: #9a9d8f; letter-spacing: .03em; }
+#trail-count { color: var(--trail-muted); font-size: 11px; letter-spacing: .03em; }
+.trail-empty { padding: 68px 24px 74px; text-align: center; background: #fafbf9; border: 1px solid #eef1eb; }
 .trail-empty > svg { color: #83917d; margin-bottom: 16px; }
-.trail-empty h3 { font-size: 18px; font-weight: 500; }
-.trail-empty p { margin-top: 8px; font-size: 14px; color: var(--muted); }
-.trail-entry { margin-top: 32px; padding-bottom: 38px; border-bottom: 1px solid var(--line); }
-.trail-entry:last-child { border: 0; padding-bottom: 0; }
-.trail-cover { margin: 0 0 22px; }
-.trail-photo img { display: block; width: 100%; height: auto; border-radius: 4px; }
-.trail-photo figcaption { color: var(--muted); font-size: 12px; margin-top: 8px; }
-.trail-date { display: block; color: var(--trail-green); font-size: 12px; font-variant-numeric: tabular-nums; margin-bottom: 6px; }
-.trail-entry h3 { font-size: 24px; font-weight: 500; line-height: 1.4; }
-.trail-location { color: var(--muted); font-size: 14px; margin-top: 7px; }
-.trail-body { margin-top: 22px; }
-.trail-body.has-map { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 36px; align-items: start; }
-.trail-notes { max-width: 750px; font-size: 15px; line-height: 1.9; }
-.trail-notes p + p { margin-top: 12px; }
+.trail-empty h3 { font-family: var(--journal-serif); font-size: 21px; font-weight: 400; }
+.trail-empty p { margin-top: 8px; font-size: 13px; color: var(--trail-muted); }
+.trail-entry { padding-top: 22px; padding-bottom: 52px; border-bottom: 1px solid var(--trail-line); }
+.trail-entry + .trail-entry { margin-top: 34px; }
+.trail-entry:last-child { border-bottom: 0; padding-bottom: 0; }
+.trail-entry-header { display: grid; grid-template-columns: 82px minmax(0, 1fr) auto; align-items: center; gap: 28px; margin-bottom: 28px; }
+.trail-date { display: flex; flex-direction: column; justify-content: center; text-align: center; padding-right: 28px; border-right: 1px solid var(--trail-line); font-variant-numeric: tabular-nums; }
+.trail-date-month { font-size: 10px; color: var(--trail-green); letter-spacing: .12em; text-transform: uppercase; }
+.trail-date-day { font-family: var(--journal-serif); font-size: 34px; line-height: 1.3; font-weight: 400; }
+.trail-date-year { color: var(--trail-muted); font-size: 10px; letter-spacing: .13em; }
+.trail-entry h3 { font-family: var(--journal-serif); font-size: clamp(25px, 3vw, 34px); font-weight: 400; line-height: 1.4; letter-spacing: -.02em; }
+.trail-location { display: flex; align-items: center; gap: 7px; color: var(--trail-muted); font-size: 11px; margin-top: 10px; letter-spacing: .025em; }
+.trail-location svg { flex: 0 0 auto; }
+.sample-label { align-self: start; font-size: 10px; color: #87704d; border: 1px solid #e6dfd2; padding: 3px 9px; white-space: nowrap; }
+.trail-cover { margin: 0; }
+.trail-photo-button { display: block; position: relative; width: 100%; border: 0; padding: 0; background: #f0f2ed; color: white; overflow: hidden; }
+.trail-photo img { display: block; width: 100%; height: auto; }
+.photo-expand { position: absolute; bottom: 16px; right: 16px; display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px; background: #223b31ba; color: #fff; font-size: 10px; border: 1px solid #ffffff40; opacity: 0; transform: translateY(3px); transition: opacity .2s, transform .2s; }
+.trail-photo-button:hover .photo-expand, .trail-photo-button:focus-visible .photo-expand { opacity: 1; transform: translateY(0); }
+.trail-photo figcaption { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px 18px; color: var(--trail-muted); font-size: 10px; margin-top: 12px; letter-spacing: .03em; }
+.photo-caption-text { display: inline-flex; align-items: baseline; gap: 12px; }
+.photo-caption-index { color: #9a9d8f; font-size: 9px; letter-spacing: .12em; }
+.photo-sample-note { color: #8d826e; }
+.trail-body { margin-top: 41px; }
+.trail-body.has-map { display: grid; grid-template-columns: minmax(0, 1fr) 332px; gap: 64px; align-items: start; }
+.trail-note-heading, .map-heading { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: .14em; color: var(--trail-muted); margin-bottom: 18px; }
+.trail-notes { max-width: 680px; font-size: 14px; line-height: 2; color: #657267; }
+.trail-notes p:first-of-type { font-family: var(--journal-serif); font-size: 21px; line-height: 1.8; color: var(--trail-ink); margin-bottom: 17px; }
+.trail-notes p + p { margin-top: 15px; }
+.trail-note-end { margin-top: 25px; color: #96a38e; }
+.trail-map { padding-left: 24px; border-left: 1px solid var(--trail-line); }
 .trail-map:only-child { grid-column: 1 / -1; max-width: 520px; width: 100%; }
-.trail-coordinates { font-size: 11px; color: var(--trail-green); font-variant-numeric: tabular-nums; margin-bottom: 10px; }
-.trail-map iframe { display: block; width: 100%; height: 210px; border: 1px solid var(--line); border-radius: 4px; background: #f6f8f4; }
-.trail-map-link { display: inline-flex; align-items: center; min-height: 44px; font-size: 12px; }
-html[lang="zh-CN"] .journal-heading h1 { letter-spacing: .04em; }
-@media (max-width: 700px) {
-  .journal-intro { grid-template-columns: minmax(0, 1fr) 180px; gap: 24px; padding: 38px 0; }
-  .journal-subtitle { font-size: 14px; }
-  .trail-body.has-map { grid-template-columns: 1fr; gap: 24px; }
+.map-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.map-heading svg { color: #91a187; }
+.trail-map-frame { position: relative; background: #f5f6ef; overflow: hidden; }
+.trail-map iframe { display: block; width: 100%; height: 215px; border: 0; background: #f5f6ef; }
+.trail-map-image { display: block; width: 100%; height: auto; }
+.trail-coordinates { font-size: 10px; color: var(--trail-green); font-variant-numeric: tabular-nums; letter-spacing: .06em; margin-top: 13px; }
+.trail-map-link { display: inline-flex; align-items: center; min-height: 38px; font-size: 11px; color: var(--trail-green); }
+.trail-map-note { margin-top: 5px; color: #92988c; font-size: 10px; }
+.hiking-page footer { border-top-color: var(--trail-line); color: var(--trail-muted); font-size: 10px; }
+.journal-footer-note { font-family: var(--journal-serif); font-style: italic; letter-spacing: .03em; }
+html[lang="zh-CN"] .journal-heading h1 { font-size: 56px; letter-spacing: .12em; }
+html[lang="zh-CN"] .journal-eyebrow { letter-spacing: .2em; }
+html[lang="zh-CN"] .trail-entry h3 { letter-spacing: .055em; }
+@media (hover: none) { .photo-expand { opacity: 1; transform: none; } }
+@media (max-width: 800px) {
+  .hiking-page .topbar { flex-wrap: wrap; gap: 0 24px; }
+  .hiking-page .topbar nav { margin-left: auto; }
+  .journal-intro { grid-template-columns: minmax(0, 1fr) 200px; gap: 30px; }
+  .trail-body.has-map { grid-template-columns: minmax(0, 1fr) 270px; gap: 28px; }
+  .trail-map { padding-left: 18px; }
 }
-@media (max-width: 540px) {
-  .journal-intro { grid-template-columns: 1fr; gap: 20px; padding-bottom: 26px; }
-  .trail-sketch { max-width: 220px; justify-self: end; }
-  .trail-empty { padding: 45px 18px; }
+@media (max-width: 600px) {
+  .hiking-page .topbar { min-height: 0; align-items: flex-start; padding-top: 8px; padding-bottom: 8px; }
+  .journal-wordmark { min-height: 34px; }
+  .hiking-page .topbar nav { margin-left: 0; gap: 0 15px; width: 100%; }
+  .hiking-page .topbar nav a { font-size: 11px; min-height: 38px; }
+  .hiking-main { padding-top: 15px; padding-bottom: 40px; }
+  .journal-intro { grid-template-columns: 1fr; gap: 22px; padding: 29px 0 31px; }
+  .journal-intro-note { display: flex; align-items: start; gap: 12px; max-width: 330px; }
+  .journal-intro-note > svg { margin-top: 3px; flex: 0 0 auto; }
+  .journal-subtitle { font-size: 12px; }
+  .journal-heading h1 { font-size: 40px; }
+  html[lang="zh-CN"] .journal-heading h1 { font-size: 44px; }
+  .trail-log { margin-top: 21px; }
+  .trail-entry { padding-top: 12px; }
+  .trail-entry-header { grid-template-columns: 54px minmax(0, 1fr); gap: 17px; margin-bottom: 22px; }
+  .trail-date { padding-right: 16px; }
+  .trail-date-day { font-size: 29px; }
+  .trail-entry h3 { font-size: 25px; }
+  .sample-label { grid-column: 2; justify-self: start; margin-top: -6px; }
+  .trail-location { font-size: 10px; }
+  .trail-body.has-map { grid-template-columns: 1fr; gap: 34px; }
+  .trail-body { margin-top: 30px; }
+  .trail-notes p:first-of-type { font-size: 20px; }
+  .trail-map { padding-left: 0; padding-top: 25px; border-left: 0; border-top: 1px solid var(--trail-line); }
+  .trail-map iframe { height: 230px; }
+  .journal-footer-note { display: none; }
+  .photo-expand { right: 9px; bottom: 9px; }
 }
-@media (max-width: 480px) {
-  .hiking-main { padding: 12px 22px 32px; }
-  .journal-toolbar { gap: 12px; }
-}
+@media (max-width: 480px) { .hiking-main { padding-left: 22px; padding-right: 22px; } }
 @media print {
-  .journal-toolbar, .trail-sketch { display: none; }
+  .journal-toolbar, .sample-label, .photo-expand { display: none; }
   .hiking-main { padding: 0; }
   .trail-entry { break-inside: avoid; }
+}
+.trail-entry-header.is-undated { grid-template-columns: minmax(0, 1fr) auto; }
+.journal-subtitle { white-space: pre-line; }
+@media (max-width: 600px) {
+  html:has(.hiking-page) { --header-offset: 144px; }
 }
